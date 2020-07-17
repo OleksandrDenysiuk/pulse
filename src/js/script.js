@@ -82,4 +82,29 @@ window.addEventListener('DOMContentLoaded', () => {
 	setActionToLinks(linksForward);
 	setActionToLinks(linksBack);
 
+	//modal
+	document.querySelectorAll('[data-modal=consultation]').forEach(button => {
+		console.log(button);
+		button.addEventListener('click', e => {
+			document.querySelector('.overlay').style.display = 'block';
+			document.querySelector('#consultation').style.display = 'block';
+		});
+	});
+
+	document.querySelectorAll('.modal__close').forEach(closeBtn => {
+		closeBtn.addEventListener('click', e => {
+			document.querySelector('.overlay').style.display = 'none';
+			document.querySelector('#consultation').style.display = 'none';
+		});
+	});
+
+	document.querySelectorAll('.button_mini').forEach((btn, i) => {
+		btn.addEventListener('click', e => {
+			const product = document.querySelectorAll('.catalog-item__subtitle')[i].textContent;
+			document.querySelector('#order .modal__descr').innerHTML = `${product}`;
+			document.querySelector('.overlay').style.display = 'block';
+			document.querySelector('#order').style.display = 'block';
+		});
+	});
+
 });
