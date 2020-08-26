@@ -44,6 +44,8 @@ window.addEventListener('DOMContentLoaded', () => {
 	}
 
 	tabsParent.addEventListener('click', e => {
+		console.log(e.currentTarget);
+		console.log(e.currentTarget.classList.contains('catalog__tab'))
 		const target = e.target;
 		if (target && target.classList.contains('catalog__tab')) {
 			disactiveTabs(tabs);
@@ -84,7 +86,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	//modal
 	document.querySelectorAll('[data-modal=consultation]').forEach(button => {
-		console.log(button);
 		button.addEventListener('click', e => {
 			document.querySelector('.overlay').style.display = 'block';
 			document.querySelector('#consultation').style.display = 'block';
